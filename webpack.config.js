@@ -34,7 +34,7 @@ module.exports = (env) => {
     devtool: isProduction ? 'source-map' : 'inline-source-map', //zadnja samo za development
     devServer: {
         contentBase: path.join(__dirname, 'public'),
-        historyApiFallback: true
+        historyApiFallback: true  //umesto 404 salje fallback u public
     }
     };
 };
