@@ -8,7 +8,7 @@ module.exports = (env) => {
     return {
     entry: './src/app.js',
     output: {
-        path: path.join(__dirname, 'public'),
+        path: path.join(__dirname, 'public', 'dist'),
         filename: 'bundle.js'
     },
     module: {
@@ -34,7 +34,8 @@ module.exports = (env) => {
     devtool: isProduction ? 'source-map' : 'inline-source-map', //zadnja samo za development
     devServer: {
         contentBase: path.join(__dirname, 'public'),
-        historyApiFallback: true  //umesto 404 salje fallback u public
+        historyApiFallback: true,  //umesto 404 salje fallback u public
+        publicPath: '/dist/'
     }
     };
 };
