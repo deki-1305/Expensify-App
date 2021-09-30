@@ -1,15 +1,22 @@
-import {createStore, combineReducers} from 'redux';
+import {createStore, combineReducers, applyMiddleware, compose} from 'redux';
 import expensesReducer from '../reducers/expenses';
 import filtersReducer from '../reducers/filters';
+import thunk from 'redux-thunk';
 
-//Store creation 
+const composeEnhancers = window.__REDUX_DEVTOOLS_EXTENSION_COMPOSE__ || compose;
+// ovde kombinujemo i devtools(ako postoji) i enhancer da budu aktivni(spaja ga dole)
 
 export default () => {const store = createStore(
     combineReducers({
         expenses: expensesReducer,
         filters: filtersReducer
-    }),
-    window.__REDUX_DEVTOOLS_EXTENSION__ && window.__REDUX_DEVTOOLS_EXTENSION__()
-);
+    }), 
+    composeEnhancers(applyMiddleware(thunk)) //dodavanje enhancera(vidi createStore def.)
+    //da nema DEVTOOLS-a samo bi stavili applyMiddleware(thunk) i gotovo
+    //ovo umesto window.__REDUX_DEVTOOLS_EXTENSION__ && window.__REDUX_DEVTOOLS_EXTENSION__()
+);    
     return store;
 };
+
+
+// ovo gore window......sluzi dodavanju redux devtoolsa da se vide u browseru dole
