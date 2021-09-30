@@ -41,7 +41,7 @@ export const startRemoveExpense = ({id} = {}) => {
       return database.ref(`expenses/${id}`).remove().then((ref) => {
         dispatch(removeExpense({id}));
       });
-  };
+  }; // startRemoveExpense je uklanjanje podataka iz Firebase, a removeExpense samo iz aplikacije
 };
 
 //EDIT_EXPENSE
@@ -52,6 +52,14 @@ export const editExpense = (id, updates) => {
         updates
     }
 }
+
+export const startEditExpense = (id, updates) => {
+  return (dispatch) => {
+   return database.ref(`expenses/${id}`).update(updates).then(() => {
+      dispatch(editExpense(id, updates));
+    });
+  };
+};
 
 //SET_EXPENSES
 export const setExpenses = (expenses) => ({
