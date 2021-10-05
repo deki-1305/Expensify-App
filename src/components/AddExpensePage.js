@@ -6,7 +6,7 @@ import { startAddExpense } from '../actions/expenses';
 export class AddExpensePage extends React.Component {
     onSubmit = (expense) => {
       this.props.startAddExpense(expense);
-      this.props.history.push('/'); //prebacuje stranicu na dashboard
+      this.props.history.push('/dashboard'); //prebacuje stranicu na dashboard
     };
     render() {
       return (
