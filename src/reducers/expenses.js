@@ -16,3 +16,9 @@ const expensesReducer = (state = expensesReducerDefaultState, action) => {
 };
 
 export default expensesReducer;
+
+// reducer je f-ja koja uzima pocetni state i actions objekat(govori sta se radi), odlucuje
+// kako da se update=uje state i izbacuje novi promenjeni state
+// On je kao neki event listener koji obradjuje dogadjaje u zavisnosti od action type-a
+// reducer ne menja postojeci state,on kopira state, pravi izmene i vraca ga kao novi state
+// action je u stvari addExpense, removeExpense... 

@@ -1,4 +1,4 @@
-const path = require('path');
+const path = require('path');    // require je node nacin importa
 const express = require('express'); //ucitavamo express
 const app = express(); //formiramo instancu expresa,tj.novu app
 const publicPath = path.join(__dirname, '..', 'public'); 
@@ -12,4 +12,5 @@ app.get('*', (req, res) => {
 
 app.listen(port, () => {
   console.log('Server is up!');   
-});        //ceka na din.portu Heroku ili stat.localhost 3000 zahtev i ispisuje ovaj log
+});        //ceka na din.portu Heroku ili stat.localhost 3000 zahtev i prikazuje fajl i 
+		// ispisuje ovaj log

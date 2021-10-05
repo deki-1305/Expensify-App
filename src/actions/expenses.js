@@ -1,4 +1,4 @@
-import uuid from 'uuid';
+import uuid from 'uuid';  //ne treba vise za Firebase,ima svoj sa push sto dobije key
 import database from '../firebase/firebase';
 
 // 1.component calls action generator
@@ -41,7 +41,7 @@ export const startRemoveExpense = ({id} = {}) => {
       return database.ref(`expenses/${id}`).remove().then((ref) => {
         dispatch(removeExpense({id}));
       });
-  }; // startRemoveExpense je uklanjanje podataka iz Firebase, a removeExpense samo iz aplikacije
+  }; //startRemoveExpense je uklanjanje podataka iz Firebase,a removeExpense samo iz Redux store
 };
 
 //EDIT_EXPENSE
