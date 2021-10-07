@@ -6,7 +6,7 @@ module.exports = (env) => {
     const CSSExtract = new ExtractTextPlugin('styles.css'); //kreiramo novu instancu plugina
     //ime instance CSSExtract je proizvoljno, a fajl css ce biti taj u koji sve smestamo kasnije
     return {
-    entry: './src/app.js',
+    entry: ['babel-polyfill', './src/app.js'],
     output: {
         path: path.join(__dirname, 'public', 'dist'),
         filename: 'bundle.js'
